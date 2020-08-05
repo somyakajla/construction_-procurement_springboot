@@ -6,6 +6,8 @@ import com.example.constructionPrecurment_backend.service.project.ProjectService
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 /**
 Project routes
 router.post('/createProject', ctrlProject.createProject);
@@ -30,17 +32,16 @@ public class ProjectController {
 
     @PostMapping(path = "/createProject")
     public Project addProject(@RequestBody Project project){
-        projectService.saveProject(project);
-        return project;
+        return projectService.saveProject(project);
     }
 
 //    @GetMapping(path = "/getProject")
-//    public void getProject(@RequestParam(required = false) UUID projectId, @RequestParam(required = false) UUID userId) {
+//    public void getProject(@RequestParam(required = false) UUID projectId, @RequestParam(required = false) UUID userId, @RequestParam(required = false) ) {
 //        if(projectId != null) {
-//            System.out.println("project");
+//            return projectService.findByProjectId(projectId);
 //        }
 //        else if(userId != null){
-//            System.out.println("userId");
+//            return projectService.findByUserId(projectId);
 //        }
 //
 //        else{
